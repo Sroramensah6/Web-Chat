@@ -7,7 +7,6 @@ import LogIn from "."
 test('rendering and submitting LogIn form', async () => {
     const handleSubmit = jest.fn()
     render(<LogIn onSubmit={handleSubmit} isOpen={true} />)
-    // const user = userEvent.setup()
     user.type(getName(), 'John Dee')
     user.click(getLoginButton())
     await waitFor(() =>

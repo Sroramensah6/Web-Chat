@@ -16,7 +16,7 @@ test('rendering and submitting LogIn form', async () => {
             </PersistGate>
         </Provider> 
     )
-    // const user = userEvent.setup()
+    
     user.type(getInput(), 'consectetur adipisicing elit.')
     user.click(getLoginButton())
     await waitFor(() =>
