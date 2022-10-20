@@ -1,3 +1,3 @@
-import { retrieveData } from "./sessionStorage"
+import { retrieveData, storeData } from "./sessionStorage"
 
-export { retrieveData }
+export { retrieveData, storeData }

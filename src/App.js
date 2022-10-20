@@ -5,7 +5,7 @@ import { Messages, SendMessages } from './components'
 import { useAppDispatch, useAppSelector, useScrollToBottom } from './hooks'
 import { addMessage, getMessage } from './features/messagesSlice'
 import LogInDialog from './components/logInDialog'
-import { retrieveData } from './util'
+import { retrieveData, storeData } from './util'
 
 function App() {
   const dispatch = useAppDispatch()
@@ -24,7 +24,7 @@ function App() {
   const onSubmitLogIn = (values) => {
     values.id = new Date().getTime().toString(36) + new Date().getUTCMilliseconds()
     values.isActive = !values.isActive
-    sessionStorage.setItem("user", JSON.stringify(values))
+    storeData('user', values)
     scrollToBottom()
     setIsOpen((prev) => !prev)
   }
