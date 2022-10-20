@@ -18,20 +18,6 @@ test('rendering and submitting LogIn form', async () => {
     )
 })
 
-// // describe('LogIn', () => {
-// //     const onSubmit = jest.fn()
-
-// //     beforeEach(() => {
-// //         onSubmit.mockClear();
-// //         render(<LogIn onSubmit={onSubmit} isOpen={true} />);
-        
-// //     })
-// //     it('onSubmit is called when all fields pass validation', () => {
-// //         user.type(getName(), 'Srora')
-// //         user.click(getLoginButton)
-// //     })
-// // })
-
 function getName (){
     return screen.getByRole('textbox', {
         name: /name/i
