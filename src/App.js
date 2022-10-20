@@ -43,7 +43,7 @@ function App() {
           <SendMessages onSubmit={onSubmitMessage}  />
         </div>
       </div>
-      <LogInDialog onSubmit={onSubmitLogIn} isOpen={isOpen} scrollToBottom={scrollToBottom} />
+      <LogInDialog onSubmit={onSubmitLogIn} isOpen={!user} scrollToBottom={scrollToBottom} />
     </div>
   );
 }
