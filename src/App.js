@@ -2,31 +2,28 @@ import { useEffect, useRef, useState } from 'react'
 
 import styles from './styles'
 import { Messages, SendMessages } from './components'
-import { useAppDispatch, useAppSelector } from './hooks'
+import { useAppDispatch, useAppSelector, useScrollToBottom } from './hooks'
 import { addMessage, getMessage } from './features/messagesSlice'
 import LogInDialog from './components/logInDialog'
 
 function App() {
   const dispatch = useAppDispatch()
   const items = useAppSelector(getMessage)
-  
-  const messagesEndRef = useRef(null)
-  
-  const [isOpen, setIsOpen] = useState(true)
-  
-  useEffect(() => {
-    scrollToBottom()
-  }, [items])
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
+  const messagesEndRef = useRef(null)
+
+  const [isOpen, setIsOpen] = useState(true)
+
+  const { scrollToBottom } = useScrollToBottom(messagesEndRef)
+  
+  useEffect(() => scrollToBottom(), [items])
 
   const onSubmitLogIn = (values) => {
     values.id = new Date().getTime().toString(36) + new Date().getUTCMilliseconds()
     values.isActive = !values.isActive
     setIsOpen((prev) => !prev)
   }
+  
   const onSubmitMessage = (values) => {
     values.message_id = new Date().getTime().toString(36) + new Date().getUTCMilliseconds()
     values.createdOn = new Date()
