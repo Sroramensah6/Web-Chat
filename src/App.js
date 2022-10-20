@@ -19,6 +19,7 @@ function App() {
   useEffect(() => scrollToBottom(), [items])
 
   const onSubmitLogIn = (values) => {
+    sessionStorage.setItem("user", JSON.stringify(values))
     values.id = new Date().getTime().toString(36) + new Date().getUTCMilliseconds()
     values.isActive = !values.isActive
     setIsOpen((prev) => !prev)
