@@ -8,6 +8,7 @@ const validationSchema = yup.object().shape({
 
 let initialValues = {
     message_id: '',
+    user_id: '',
     user_name: '',
     content: '',
     createdOn: ''

@@ -33,6 +33,8 @@ function App() {
   }
   
   const onSubmitMessage = (values) => {
+    values.user_id = user?.id
+    values.user_name = user?.name
     values.message_id = new Date().getTime().toString(36) + new Date().getUTCMilliseconds()
     values.createdOn = new Date()
     dispatch(addMessage(values))
