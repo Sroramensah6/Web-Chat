@@ -1,24 +1,27 @@
 import moment from 'moment'
 
 import { layout } from '../../styles'
-import { useAppSelector } from '../../hooks'
+import { useAppSelector, useLoadData } from '../../hooks'
 import { getMessage } from '../../features/messagesSlice'
 
 function Messages({ messagesEndRef, user }) {
     const items = useAppSelector(getMessage)
 
+    const { data } = useLoadData({items})
+
     console.log(items);
+    console.log(data?.length);
 
     if (!user) return null
     
     return (
-        items?.length === 0 ? (
+        data?.length === 0 ? (
             <div className=' max-h-screen min-h-screen flex flex-1 items-center justify-center'>
                 <p className='text-xl font-extrabold bg-transparent capitalize text-white'>no messages</p>
             </div>
         ) : (   
                 <section id='home' className={`container mx-auto overflow-auto mt-3 mb-24 w-full`}>
-                    {Object.entries(items).map(([key, items]) => (
+                    {Object.entries(data).map(([key, items]) => (
                         <div key={key} className={`py-5 block clear-both px-16`}>
                             {items?.user_name !== user?.name ? (
                                 <div className={`${layout.sectionImg} w-96 float-left`}>

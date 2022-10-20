@@ -25,7 +25,7 @@ export default function useLoadData ({ items }){
         return () => {
             window.removeEventListener('scroll', handleScroll)
         };
-    }, [counter]) 
+    }, [counter, items]) 
 
     return { data }
 }
