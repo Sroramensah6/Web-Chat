@@ -6,16 +6,18 @@ const validationSchema = yup.object().shape({
     content: yup.string().min(3).required().label('Text box'),
 })
 
-function SendMessages() {
-    const initialValues = {
-        message_id: '',
-        user_name: '',
-        content: '',
-        createdOn: ''
-    }
+let initialValues = {
+    message_id: '',
+    user_name: '',
+    content: '',
+    createdOn: ''
+}
+
+function SendMessages({ onSubmit }) {
 
     const handleSubmit = (content_details, { resetForm }) => {
-        console.log(content_details)
+        onSubmit(content_details)
+        resetForm()
     }
     return (
         <Form
