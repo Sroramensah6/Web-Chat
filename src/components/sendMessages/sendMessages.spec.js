@@ -7,7 +7,7 @@ import { render, screen, waitFor } from "@testing-library/react"
 import SendMessages from "."
 import { store, persister } from "../../redux"
 
-test('rendering and submitting LogIn form', async () => {
+test('rendering and submitting SendMessages form', async () => {
     const handleSubmit = jest.fn()
     render(
         <Provider store={store}>
