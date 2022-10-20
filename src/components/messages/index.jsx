@@ -9,9 +9,6 @@ function Messages({ messagesEndRef, user }) {
 
     const { data } = useLoadData({items})
 
-    console.log(items);
-    console.log(data?.length);
-
     if (!user) return null
     
     return (
