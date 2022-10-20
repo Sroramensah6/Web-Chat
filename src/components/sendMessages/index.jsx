@@ -1,18 +1,6 @@
-import * as yup from 'yup'
+import { messageInitialValues, messageValidationSchema } from '../../constants'
 
 import { Form, FormField, SubmitButton } from "../forms"
-
-const validationSchema = yup.object().shape({
-    content: yup.string().min(3).required().label('Text box'),
-})
-
-let initialValues = {
-    message_id: '',
-    user_id: '',
-    user_name: '',
-    content: '',
-    createdOn: ''
-}
 
 function SendMessages({ onSubmit }) {
 
@@ -23,8 +11,8 @@ function SendMessages({ onSubmit }) {
     return (
         <Form
             onSubmit={handleSubmit}
-            initialValues={initialValues}
-            validationSchema={validationSchema}
+            initialValues={messageInitialValues}
+            validationSchema={messageValidationSchema}
         >
             <div className="flex flex-row p-4 w-full">
                 <FormField
@@ -38,4 +26,4 @@ function SendMessages({ onSubmit }) {
         </Form>
     )
 }
-export default  SendMessages
+export default SendMessages

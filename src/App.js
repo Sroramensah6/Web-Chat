@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
 import styles from './styles'
-import { Messages, SendMessages } from './components'
-import { useAppDispatch, useAppSelector, useScrollToBottom } from './hooks'
-import { addMessage, getMessage } from './features/messagesSlice'
-import LogInDialog from './components/logInDialog'
 import { retrieveData, storeData } from './util'
+import LogInDialog from './components/logInDialog'
+import { Messages, SendMessages } from './components'
+import { addMessage, getMessage } from './features/messagesSlice'
+import { useAppDispatch, useAppSelector, useScrollToBottom } from './hooks'
 
 function App() {
   const dispatch = useAppDispatch()

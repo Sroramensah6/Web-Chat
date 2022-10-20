@@ -1,6 +1,6 @@
-import { logInInitialValues } from "./initialValues"
-import { logInValidationSchema } from "./validationSchema"
+import { logInInitialValues, messageInitialValues } from "./initialValues"
+import { logInValidationSchema, messageValidationSchema } from "./validationSchema"
 
 const sleep = ms => new Promise(r => setTimeout(r, ms))
 
-export { sleep, logInInitialValues, logInValidationSchema }
+export { sleep, logInInitialValues, messageInitialValues, logInValidationSchema, messageValidationSchema }
