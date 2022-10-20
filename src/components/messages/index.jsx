@@ -4,7 +4,7 @@ import { layout } from '../../styles'
 import { useAppSelector } from '../../hooks'
 import { getMessage } from '../../features/messagesSlice'
 
-function Messages() {
+function Messages({ messagesEndRef }) {
     const items = useAppSelector(getMessage)
     return (
         items?.length === 0 ? (
@@ -32,9 +32,8 @@ function Messages() {
                             </div>
                         </div>
                     ))}
+                    <div ref={messagesEndRef} />
                 </section>
-                
-                
             )
     )
 }
