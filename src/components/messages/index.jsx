@@ -4,8 +4,11 @@ import { layout } from '../../styles'
 import { useAppSelector } from '../../hooks'
 import { getMessage } from '../../features/messagesSlice'
 
-function Messages({ messagesEndRef }) {
+function Messages({ messagesEndRef, user }) {
     const items = useAppSelector(getMessage)
+
+    if (!user) return null
+    
     return (
         items?.length === 0 ? (
             <div className=' max-h-screen min-h-screen flex flex-1 items-center justify-center'>

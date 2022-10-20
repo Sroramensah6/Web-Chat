@@ -16,8 +16,11 @@ function App() {
   const messagesEndRef = useRef(null)
 
   const [isOpen, setIsOpen] = useState(true)
+  const [users, setUser] = useState()
 
   const { scrollToBottom } = useScrollToBottom(messagesEndRef)
+  
+  useEffect(() => setUser(user), [isOpen])
   
   useEffect(() => scrollToBottom(), [items])
 
@@ -38,7 +41,7 @@ function App() {
   return (
     <div className=" max-h-screen min-h-screen flex flex-col relative">
       <div className={`flex flex-grow ${styles.flexStart} bg-black`}>
-        <Messages messagesEndRef={messagesEndRef} />
+        <Messages user={users} messagesEndRef={messagesEndRef} />
         <div className="fixed w-full bottom-0 bg-black">
           <SendMessages onSubmit={onSubmitMessage}  />
         </div>
