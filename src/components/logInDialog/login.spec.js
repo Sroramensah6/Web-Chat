@@ -7,7 +7,6 @@ import LogIn from "."
 test('rendering and submitting LogIn form', async () => {
     const handleSubmit = jest.fn()
     render(<LogIn onSubmit={handleSubmit} isOpen={true} />)
-    // const user = userEvent.setup()
     user.type(getName(), 'John Dee')
     user.click(getLoginButton())
     await waitFor(() =>
@@ -17,20 +16,6 @@ test('rendering and submitting LogIn form', async () => {
         }),
     )
 })
-
-// // describe('LogIn', () => {
-// //     const onSubmit = jest.fn()
-
-// //     beforeEach(() => {
-// //         onSubmit.mockClear();
-// //         render(<LogIn onSubmit={onSubmit} isOpen={true} />);
-        
-// //     })
-// //     it('onSubmit is called when all fields pass validation', () => {
-// //         user.type(getName(), 'Srora')
-// //         user.click(getLoginButton)
-// //     })
-// // })
 
 function getName (){
     return screen.getByRole('textbox', {
