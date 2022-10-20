@@ -1,0 +1,1 @@
+export const retrieveData = (name) => JSON.parse(sessionStorage.getItem(name))
