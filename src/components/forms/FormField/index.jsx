@@ -12,7 +12,7 @@ function FormField({ id, name, placeholder, type, label, className }) {
 
     return (
         <>
-            {label && <label htmlFor={name} className="block uppercase tracking-wide text-xs mb-2 font-bold py-1 pt-5 text-gray-600">{label}</label>}
+            {label && <label htmlFor={name} className="block uppercase tracking-wide text-xs mb-2 font-bold py-1 pt-5 text-gray-300">{label}</label>}
             <input
                 id={id}
                 type={type}
